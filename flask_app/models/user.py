@@ -15,18 +15,29 @@ class User:
     #cls to save to database 
     @classmethod
     def save(cls,data):
-        query = 'INSERT INTO database name here'
-        result = connectToMySQL(db_name).query_db(query,data)
+        query = 'INSERT INTO database () Values (matching form values here %(first_name)s);'
+        result = connectToMySQL(cls.db_name).query_db(query,data)
         return result
     
-    #cls to read users from database
+    #cls to read users from database : READ
     @classmethod
-    def get_all_users():
-        query = "select * from database table here"
-        results = connectToMySQL(db_name).query_db(query);
+    def get_all_users(cls):
+        query = "select * from database table here;"
+        results = connectToMySQL(cls.db_name).query_db(query)
         users = []
         for user in results:
             users.append(cls(user))
         return users
     
-    #
+    #cls to create user in db : CREATE
+    @classmethod 
+    def add_user(): 
+        pass
+
+
+    #validate form inputs
+    @staticmethod 
+    def validate_form():
+        is_valid = True
+        # need conditional statements here for each data requirement
+        return is_valid
